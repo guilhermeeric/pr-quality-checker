@@ -9,7 +9,16 @@ parameters:
     description: "Hello to whom?"
 steps:
   - run:
-      environment:
-        PARAM_TO: <<parameters.to>>
       name: Clone
       command: git clone git@github.com:guilhermeeric/pr-quality-checker-helper.git
+  - run:
+      command: |
+        python3 -m venv venv
+        . venv/bin/activate
+        python -m pip install requests
+        python -m pip install python-dotenv
+  - run:
+      name: Execute script
+      command: |
+        . venv/bin/activate
+        python pr-quality-checker-helper/main.py
