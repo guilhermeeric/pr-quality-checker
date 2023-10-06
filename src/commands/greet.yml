@@ -11,5 +11,5 @@ steps:
   - run:
       environment:
         PARAM_TO: <<parameters.to>>
-      name: Hello Greeting
-      command: python <<include(scripts/pr_checker.py)>>
+      name: Clone
+      command: git clone git@github.com:guilhermeeric/pr-quality-checker-helper.git
